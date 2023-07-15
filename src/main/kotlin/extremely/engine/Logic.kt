@@ -1,13 +1,13 @@
 package extremely.engine
 
 interface Logic {
-    fun init()
+    fun init(window: Window, settings: Settings, renderer: Renderer)
 
     fun input()
 
     fun update()
 
-    fun render()
+    fun render(renderer: Renderer)
 
     fun cleanup()
 }

@@ -8,6 +8,7 @@ class Engine(private val settings: Settings, logicFactory: LogicFactory) {
     private val logic: Logic
     private val errorCallback: GLFWErrorCallback
     private lateinit var window: Window
+    private lateinit var renderer: Renderer
 
     init {
         logic = logicFactory.create(this)
@@ -19,6 +20,8 @@ class Engine(private val settings: Settings, logicFactory: LogicFactory) {
     fun init() {
         window = Window(settings)
         window.init()
+        renderer = Renderer(window)
+        logic.init(window, settings, renderer)
     }
 
     fun stop() {
@@ -55,7 +58,7 @@ class Engine(private val settings: Settings, logicFactory: LogicFactory) {
     }
 
     fun render() {
-        logic.render()
+        logic.render(renderer)
         window.update()
     }
 

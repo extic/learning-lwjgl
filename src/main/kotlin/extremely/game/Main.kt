@@ -1,3 +1,5 @@
+package extremely.game
+
 import extremely.engine.Engine
 import extremely.engine.defaultSettings
 import extremely.game.logic.GameLogicFactory
